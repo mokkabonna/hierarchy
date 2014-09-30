@@ -1,0 +1,19 @@
+{
+  "name": "hierarchy",
+  "main": "src/hierarchy.js",
+  "version": "0.0.0",
+  "ignore": [
+    "node_modules",
+    "spec",
+    "Gruntfile.js",
+    "karma.conf.js",
+    "package.json"
+  ],
+  "keywords": [
+    "amd",
+    "hierarchy"
+  ],
+  "devDependencies": {
+    "requirejs": "*"
+  }
+}
