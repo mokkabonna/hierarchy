@@ -6,13 +6,29 @@ define(['src/hierarchy'], function(hierarchy) {
       expect(hierarchy).not.to.be(undefined);
     });
 
-    it('should create top level based on first condition', function () {
-      expect(hierarchy([1,2,3], function(value) {
-        return value < 3;
-      })).to.eql([{
+    it('should create the right hierarchy', function() {
+      var result = hierarchy([1, 2, 3], function(value) {
+        return value !== 3;
+      }, function(parent, child) {
+        return child === 3 && parent !== 3;
+      });
+
+      expect(result).to.eql([{
         item: 1,
+        level: 1,
+        children: [{
+          item: 3,
+          level: 2,
+          children: []
+        }]
       }, {
-        item: 2
+        item: 2,
+        level: 1,
+        children: [{
+          item: 3,
+          level: 2,
+          children: []
+        }]
       }]);
     });
 
